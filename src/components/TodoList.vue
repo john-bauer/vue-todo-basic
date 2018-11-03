@@ -1,6 +1,8 @@
 <template>
   <div id="todo-list-example">
     <p>Your Todos</p>
+    <p>Next Todo ID is: {{ nextTodoId }}</p>
+    <p>New Todo Content is: {{ newTodoContent }}</p>
     <ul id="todosList">
       <li v-for="todo in todos" :key="todo.id">
         <input type="checkbox">
@@ -10,7 +12,7 @@
       </li>
     </ul>
     <input v-model="newTodoContent" placeholder="eg. Walk the dog">
-    <input type="submit">
+    <input type="submit" v-on:click="createTodo(newTodoContent)">
   </div>
 </template>
 
@@ -44,8 +46,18 @@ export default {
     toggleCompleted(id) {
       console.log(`toggling isCompleted for todo with id ${id}`);
     },
+    createTodo(currentTodoContent) {
+      console.log(currentTodoContent);
+      this.nextTodoId = this.nextTodoId + 1;
+      this.todos.push({
+        id: this.nextTodoId,
+        content: currentTodoContent,
+        isCompleted: false,
+      });
+      // add 1 to counter for id's
+    },
     editTodo(id) {
-      console.log(`editing todo with id ${id}`);
+      console.log(`edit todo with id ${id}`);
     },
     deleteTodo(id) {
       console.log(`deleting todo with id ${id}`);
