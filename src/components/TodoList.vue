@@ -2,7 +2,12 @@
   <div id="todo-list-example">
     <p>Your Todos</p>
     <ul v-for="todo in todos" :key="todo.id">
-      <li>{{ todo.content }}</li>
+      <li>
+        <span>{{ todo.content }}</span>
+        <button v-on:click="toggleCompleted(todo.id)">TOGGLE COMPLETED</button>
+        <button v-on:click="editTodo(todo.id)">EDIT</button>
+        <button v-on:click="deleteTodo(todo.id)">DELETE</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -27,6 +32,17 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    toggleCompleted(id) {
+      console.log(`toggling isCompleted for todo with id ${id}`)
+    },
+    editTodo(id) {
+      console.log(`editing todo with id ${id}`);
+    },
+    deleteTodo(id) {
+      console.log(`deleting todo with id ${id}`);
+    },
   },
 };
 </script>
