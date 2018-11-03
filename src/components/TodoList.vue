@@ -60,7 +60,12 @@ export default {
       console.log(`edit todo with id ${id}`);
     },
     deleteTodo(id) {
-      console.log(`deleting todo with id ${id}`);
+      for (let i = 0; i < this.todos.length; i += 1) {
+        if (this.todos[i].id === id) {
+          console.log(id);
+          this.todos.splice(i, 1);
+        }
+      }
     },
   },
 };
