@@ -1,6 +1,6 @@
 <template>
   <div class="todo-form">
-      <h1>Todo Form</h1>
+      <!-- Will use this component later, after it's all working in the TodoList component -->
   </div>
 </template>
 
