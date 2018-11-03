@@ -1,6 +1,6 @@
 <template>
   <div class="todo-form">
-    <h1>Todo Form</h1>
+      <h1>Todo Form</h1>
   </div>
 </template>
 
