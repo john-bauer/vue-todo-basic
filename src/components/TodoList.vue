@@ -1,7 +1,7 @@
 <template>
   <div id="todo-list-example">
     <p>Your Todos</p>
-    <p>Next Todo ID is: {{ nextTodoId }}</p>
+    <p>Todo Id Counter: {{ todoIdCounter }}</p>
     <p>New Todo Content is: {{ newTodoContent }}</p>
     <ul id="todosList">
       <li v-for="todo in todos" :key="todo.id">
@@ -21,7 +21,7 @@ export default {
   name: 'TodoList',
   data() {
     return {
-      nextTodoId: 4,
+      todoIdCounter: 3,
       newTodoContent: '',
       todos: [
         {
@@ -48,13 +48,13 @@ export default {
     },
     createTodo(currentTodoContent) {
       console.log(currentTodoContent);
-      this.nextTodoId = this.nextTodoId + 1;
+      this.todoIdCounter = this.todoIdCounter + 1;
       this.todos.push({
-        id: this.nextTodoId,
+        id: this.todoIdCounter,
         content: currentTodoContent,
         isCompleted: false,
       });
-      // add 1 to counter for id's
+      this.newTodoContent = '';
     },
     editTodo(id) {
       console.log(`edit todo with id ${id}`);
